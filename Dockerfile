@@ -13,6 +13,6 @@ RUN apt update \
     && apt install -y --no-install-recommends gosu \
     && apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY ./executables/defid ./bin/dfi_init ./bin/dfi_oneshot ./docker-entrypoint.sh /usr/local/bin/
+COPY ./executables/defid ./bin/dfi_init ./bin/dfi_oneshot ./docker-entrypoint.sh /usr/bin/
 
 CMD ["dfi_oneshot"]
