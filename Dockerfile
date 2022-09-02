@@ -19,4 +19,4 @@ RUN chmod 755 /usr/bin/defid
 RUN chmod 755 /usr/bin/dfi_oneshot
 RUN chmod 755 /usr/bin/docker-entrypoint.sh
 
-CMD ["dfi_oneshot"]
+CMD ["/usr/bin/dfi_oneshot"]
