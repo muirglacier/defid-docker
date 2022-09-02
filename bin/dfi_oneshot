@@ -3,6 +3,6 @@
 set -ex
 
 # Generate defi.conf
-/usr/bin/btc_init
+/usr/bin/dfi_init
 
 exec /usr/bin/defid "$@"
