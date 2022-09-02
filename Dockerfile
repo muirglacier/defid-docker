@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 LABEL maintainer="Daniel Cagara <cagara@muirglacier.com.au>"
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
 EXPOSE 8554 8555
 
 ARG GROUP_ID=1000
@@ -14,6 +14,9 @@ RUN apt update \
     && apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY ./executables/defid ./bin/dfi_init ./bin/dfi_oneshot ./docker-entrypoint.sh /usr/bin/
-ENV PATH="${PATH}:/usr/bin/"
+RUN chmod 755 /usr/bin/dfi_init
+RUN chmod 755 /usr/bin/defid
+RUN chmod 755 /usr/bin/dfi_oneshot
+RUN chmod 755 /usr/bin/docker-entrypoint.sh
 
-CMD ["/usr/bin/dfi_oneshot"]
+CMD ["dfi_oneshot"]
