@@ -14,5 +14,6 @@ RUN apt update \
     && apt clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY ./executables/defid ./bin/dfi_init ./bin/dfi_oneshot ./docker-entrypoint.sh /usr/bin/
+ENV PATH="${PATH}:/usr/bin/"
 
-CMD ["dfi_oneshot"]
+CMD ["/usr/bin/dfi_oneshot"]
